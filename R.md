@@ -72,12 +72,28 @@ names(y) # 为向量中的每一个值命名
 ```
 y <- matrix(1:20, nrow=5, ncol=4)
 ```
-```
+``` R
 z <- matrix(cells, nrow=2, ncol=2, byrow=TRUE, dimnames=list(rnames, cnames))
 > z
 >    C1 C2
 > R1  1 26
 > R2 24 21
+
+# 索引
+z[1,1] # 查询第一行，第一列的值
+z[,1] # 查询第一列的值
+z[1,] # 查询第一行的值
+
+# 矩阵运算(当矩阵中的值都是数值时，可以直接进行运算)
+z * 1 
+z + z #矩阵相加时，不同的矩阵之间行和列必须一致
+
+colSums(z) # 以列求和
+rowMeans(z) # 以行求和
+colMeans(z) # 以列求平均值
+rowMeans(z) # 以行求平均值
+dig(z) # 求一个矩阵的对角线的值
+t(z) # 转换行和列
 ```
 #### 数组
 - 数组的维度可以＞2
@@ -113,7 +129,12 @@ a2 14 16 18
 a1 19 21 23
 a2 20 22 24
 ```
+##### 矩阵和数组的部分常规操作
+
+
+
 #### 数据框
+
 - 类似于excel表格的结构，python中的dataframe
 ```R
 patinentID <- c(1,2,3,4)
