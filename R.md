@@ -1,6 +1,6 @@
 # R语言
 
-## 数据结构
+## 一、数据结构
 
 #### 向量
 - R语言中下标是从1开始
@@ -162,7 +162,7 @@ patientdata[c("age", "diabetes")] # 选取特定列
 4  21    type4
 ```
 
-## 基础函数
+#### 基础函数
 
 - ls()
 
@@ -190,3 +190,47 @@ Rpack <- installed.packages()[,1]
 save(Rpack, file="Rpack.Rdata")
 ```
 
+#### 缺失值
+
+- R语言中，使用NA来代表缺失值
+
+
+
+## 二、读取文件
+
+- read.table()
+
+```R
+matrix_1 <- read.table("C:/Users/kxd18/Desktop/RData/matrix.csv", header = T, sep = ",")
+```
+
+###### 	常用参数说明
+
+1. header：表示文件第一行是否包含变量名
+2. sep：指定文件中分开数据值的分隔符
+3. row.names：指定行名
+4. col.names：指定列名（当header=F时，用于指定列的名称，如果忽略，列名会被命名为V1，V2……）
+5. skip：读取数据前可以设置需要跳过的行数
+
+> 其他参数可以使用`help(read.table)`查看
+
+- 导入excel文件
+
+```R
+lirbrary(xlsx)
+read.xlsx(file, 1) # 导入文件中的第一个工作表
+```
+
+- 访问数据库管理系统
+
+1. ODBC接口
+
+```R
+install.packages("RODBC")  #安装相关包
+odbcConnect(dsn, uid="", pwd="")  #建立连接
+sqlFetch(channel, sqltable) #读取数据库中的某个表到一个数据框中
+sqlQuery(channel, query) #提交查询并返回结果
+close(chanel) #关闭连接
+```
+
+2. DBI相关包
