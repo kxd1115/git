@@ -234,3 +234,56 @@ close(chanel) #关闭连接
 ```
 
 2. DBI相关包
+
+- 处理数据对象的实用函数
+
+```R
+length(object) # 显示对象中成分的数量
+head(object) # 显示前几行
+tail(object) # 显示最后几行
+……
+```
+
+## 三、初阶图形
+
+- 使用图形
+
+```R
+pdf("mygraph.pdf") # 将图形保存为pdf
+attach(mtcars) # 访问数据集mtcars
+plot(wt, mpg) # 画图（横轴wy，纵轴mpg）
+abline(lm(mpg~wt)) # 添加趋势线
+title("Regression of MPG on weight") # 设置图标标题
+detach(mtcars) # 从该数据集中退出
+dev.off() # 关闭图形设备
+
+```
+
+```R
+# 将图形保存为其他形式
+win.metafile()
+png()
+jpeg()
+bmp()
+tiff()
+xfig()
+postscript()
+```
+
+```R
+dev.set()
+# 指定一个特定的设备为活跃设备，但若没有那个指定的设备，等同于dev.next();若指定设备的值为1，则打开一个新的设备，并且指定那个设备为活跃设备。返回新设备的名字和编号。
+
+dev.new()
+# 打开一个新的设备。R中经常根据需要自动的打开新的设备，但也能使用跨平台的方式打开更多的设备；返回新设备的名字和编号。
+
+dev.cur()
+# 查看当前的活跃设备；返回包含当前活跃设备的名字和编号的向量；如果是返回值是1,空设备，即没有活跃设备。
+
+dev.next()
+# 查看紧随当前活跃进程的下一个进程；返回其名字和编号。
+
+dev.prev()
+# 查看当前活跃进程的前一个进程；返回其名字和编号。
+```
+
