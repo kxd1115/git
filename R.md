@@ -287,3 +287,31 @@ dev.prev()
 # 查看当前活跃进程的前一个进程；返回其名字和编号。
 ```
 
+- example
+
+```R
+dose <- c(20, 30, 40, 45, 60)
+drugA <- c(16, 20, 27, 40, 60)
+drugB <- c(15, 18, 25, 31, 40)
+plot(dose, drugA, type = "b") # plot(x, y, type="b") x轴，y轴，type="b"表示同时绘制点和线
+```
+
+- 图形参数
+
+> 用来自定义设置一幅图形的多个特征
+
+1. 使用函数par()指定图形参数
+
+```R
+opar <- par(no.readonly=TRUE)  # 复制图形参数
+par(lty=2, pch=17)             # 修改为虚线（lty=2），点符号改为三角形（pch=17）
+plot(dose, drugA, type="b")    # 绘制图形
+par(opar) 					   # 还原原始设置
+
+# par()函数一次可以设置多个参数，也可以一次只设置一个参数
+
+plot(dose, drugA, type="b", lty=2, pch=17)
+# 仅对这幅图本身有效
+```
+
+- 符号和线条
