@@ -80,3 +80,7 @@ git rm readme.md # 从版本库中删除
 git commit -m 'deltet read.me.md'
 git push
 ```
+#### 解锁IP限制
+````git
+git config --global url.https://github.com/.insteadOf git://github.com
+````
