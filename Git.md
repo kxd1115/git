@@ -2,7 +2,7 @@
 
 ## Git配置
 
-#### SSH KEYS
+### SSH KEYS
 > 先检查是否有`SSH KEYS`，如果没有，先进行配置
 
 ```
@@ -84,3 +84,26 @@ git push
 ````git
 git config --global url.https://github.com/.insteadOf git://github.com
 ````
+
+## 报错记录
+#### 关于提示Empty reply from server错误
+* 可以尝试使用修改仓库地址来解决
+
+```git
+# 查看当前的仓库地址
+git remote -v
+# 把http://或者https://替换为git@
+git remote set-url
+# 用法：git remote set-url [--push] <名称> <新的地址> [<旧的地址>] 或：git remote set-url --add <名称> <新的地址> 或：git remote set-url --delete <名称> <地址>
+```
+
+如果首页不展示你提交的记录，那时因为当前的登录邮箱和github不一致
+
+解决远程仓库中文件夹有白色箭头，且不能打开的问题
+这是因为其他工程下有.git文件夹，Github将视其为子系统模块
+```git
+git rm --cached 目录名
+git add .
+git commit -m "commit msg"
+git push
+```
